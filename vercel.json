@@ -1,13 +1,13 @@
 {
   "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.9.0"
-    }
+    "api/*.php":       { "runtime": "vercel-php@0.9.0" },
+    "api/tools/*.php": { "runtime": "vercel-php@0.9.0" }
   },
   "rewrites": [
-    { "source": "/",       "destination": "/api/index.php" },
-    { "source": "/tools2", "destination": "/api/tools2.php" },
-    { "source": "/build",  "destination": "/api/build.php" },
-    { "source": "/info",   "destination": "/api/info.php" }
+    { "source": "/",           "destination": "/api/index.php" },
+    { "source": "/tools2",     "destination": "/api/tools2.php" },
+    { "source": "/build",      "destination": "/api/build.php" },
+    { "source": "/info",       "destination": "/api/info.php" },
+    { "source": "/tools/vote", "destination": "/api/tools/vote.php" }
   ]
 }
