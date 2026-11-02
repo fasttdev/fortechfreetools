@@ -3,27 +3,22 @@
 Kumpulan tools developer ringan, khusus mobile. PHP + HTML + CSS + JS.
 Tema: **Claymorphism + Glassmorphism**, dark dengan aksen biru muda.
 
-## Struktur
+## Deploy di Vercel
 
-- `index.php` — halaman Tools 1 (landing)
-- `tools2.php` — halaman Tools 2 (maintenance)
-- `build.php` — halaman Build (maintenance)
-- `info.php` — halaman Info (maintenance)
-- `includes/` — partial & config
-- `assets/` — css & js
+Project ini pakai runtime komunitas `vercel-php` (PHP 8.5).
+Konfigurasi sudah ada di `vercel.json`.
 
-## Menambah tools baru
+### Cara deploy
 
-1. Tambah entry di `includes/tools-registry.php`.
-2. Siapkan ikon SVG baru di `includes/icons.php` (kalau belum ada).
-3. Buat halaman tool-nya (misal `tools/json.php`), lalu set `href` di registry.
-4. Set `ready => true` di registry.
+1. Push semua file ke repo GitHub/GitLab/Bitbucket.
+2. Import repo di dashboard Vercel.
+3. Framework preset: **Other** (biarkan default).
+4. Build command: kosong.
+5. Output directory: kosong.
+6. Klik **Deploy**.
 
-## Menambah halaman navigasi baru
-
-Tambah entry di `$NAV_PAGES` pada `includes/config.php` + buat file halamannya.
-
-## Jalankan lokal
+Atau lewat CLI:
 
 ```bash
-php -S localhost:8000
+npm i -g vercel
+vercel --prod
