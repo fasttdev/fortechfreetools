@@ -9,6 +9,8 @@ $pageHeading = APP_SHORT;
 $pageSub     = 'Free Tools';
 $showStatus  = true;
 
+$activeCount = count(array_filter($TOOLS_T1, fn($t) => !empty($t['ready'])));
+
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 ?>
@@ -21,7 +23,7 @@ require __DIR__ . '/includes/header.php';
         <p class="hero__desc">Dibuat khusus buat HP. Nggak ada iklan, nggak perlu daftar.</p>
         <div class="hero__stats">
             <div class="stat glass">
-                <span class="stat__value">0</span>
+                <span class="stat__value"><?= e((string) $activeCount) ?></span>
                 <span class="stat__label">Tools Aktif</span>
             </div>
             <div class="stat glass">
@@ -34,19 +36,24 @@ require __DIR__ . '/includes/header.php';
     <section class="section">
         <div class="section__head">
             <h3 class="section__title">Tools</h3>
-            <span class="section__tag glass">Coming Soon</span>
+            <span class="section__tag glass"><?= $activeCount > 0 ? 'Ready' : 'Coming Soon' ?></span>
         </div>
 
         <div class="grid">
             <?php foreach ($TOOLS_T1 as $tool): ?>
-                <?php $locked = empty($tool['ready']); ?>
-                <article class="tool-card clay<?= $locked ? ' is-locked' : '' ?>" data-stagger>
-                    <div class="tool-card__icon">
-                        <?= icon($tool['icon']) ?>
+                <?php if (empty($tool['ready'])): ?>
+                    <div class="tool-card clay is-locked" data-stagger>
+                        <div class="tool-card__icon"><?= icon($tool['icon']) ?></div>
+                        <h4 class="tool-card__title"><?= e($tool['title']) ?></h4>
+                        <p class="tool-card__desc"><?= e($tool['desc']) ?></p>
                     </div>
-                    <h4 class="tool-card__title"><?= e($tool['title']) ?></h4>
-                    <p class="tool-card__desc"><?= e($tool['desc']) ?></p>
-                </article>
+                <?php else: ?>
+                    <a href="<?= e($tool['href']) ?>" class="tool-card clay" data-stagger>
+                        <div class="tool-card__icon"><?= icon($tool['icon']) ?></div>
+                        <h4 class="tool-card__title"><?= e($tool['title']) ?></h4>
+                        <p class="tool-card__desc"><?= e($tool['desc']) ?></p>
+                    </a>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
     </section>
