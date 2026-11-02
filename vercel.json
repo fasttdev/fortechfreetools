@@ -1,0 +1,9 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/tools2", "destination": "/tools2.html" },
+    { "source": "/build",  "destination": "/build.html" },
+    { "source": "/info",   "destination": "/info.html" },
+    { "source": "/vote",   "destination": "/vote.html" }
+  ]
+}
