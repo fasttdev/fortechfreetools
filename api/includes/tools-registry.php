@@ -4,9 +4,17 @@ declare(strict_types=1);
 /**
  * Registry tools — sumber data untuk kartu di halaman Tools 1.
  * Set 'ready' => true untuk mengaktifkan kartu.
- * Kalau ready, isi 'href' dengan URL bersih (misal '/tools/json').
+ * Kalau ready, isi 'href' dengan URL bersih (misal '/tools/vote').
  */
 $TOOLS_T1 = [
+    [
+        'id'    => 'vote',
+        'title' => 'Vote WA',
+        'desc'  => 'Vote poll channel WhatsApp',
+        'icon'  => 'vote',
+        'href'  => '/tools/vote',
+        'ready' => true,
+    ],
     [
         'id'    => 'json',
         'title' => 'JSON Formatter',
