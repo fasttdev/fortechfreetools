@@ -27,6 +27,9 @@ function icon(string $name, float $stroke = 2.0, string $class = ''): string
 
         'back'   => '<path d="m15 18-6-6 6-6"/>',
 
+        'vote'   => '<path d="M9 11l3 3L22 4"/>'
+                  . '<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+
         'json'   => '<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>',
         'base64' => '<rect x="3" y="3" width="18" height="18" rx="3"/>'
                   . '<path d="M3 9h18"/><path d="M9 21V9"/>',
